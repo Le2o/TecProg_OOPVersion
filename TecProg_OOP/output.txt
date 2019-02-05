@@ -1,0 +1,10 @@
+Filled container. 
+Container contains 6 elements.
+1: It is Object-oriented programming language: Year of development = 1998, Inheritance is single.
+2: It is Procedural programming language: Year of development = 1990, Abstract data types is missing.
+3: It is Procedural programming language: Year of development = 1979, Abstract data types is present.
+4: It is Object-oriented programming language: Year of development = 1989, Inheritance is interface.
+5: It is Object-oriented programming language: Year of development = 2000, Inheritance is single.
+6: It is Object-oriented programming language: Year of development = 2009, Inheritance is multiple.
+Empty container. 
+Container contains 0 elements.
