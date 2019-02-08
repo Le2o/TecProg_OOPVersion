@@ -7,17 +7,17 @@ namespace Filippov
 {
 	class Object_oriented : public Language
 	{
-		//unsigned short int year_of_development;
+	public:
+		Object_oriented() {/**/}
+		void Input(ifstream &fin);
+		void Output(ofstream &fout);
+	private:
 		enum inheritance
 		{
 			SINGLE,
 			MULTIPLE,
 			INTERFACE
 		} number;
-	public:
-		Object_oriented() {/**/}
-		void Input(ifstream &fin);
-		void Output(ofstream &fout);
 	};
 }
 

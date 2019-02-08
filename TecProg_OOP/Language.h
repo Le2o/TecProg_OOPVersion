@@ -10,11 +10,16 @@ namespace Filippov
 	class Language
 	{
 	protected:
-		unsigned short int year_of_development;
+		Language() {/**/}
 	public:
 		static Language* Language_Input(ifstream &fin);
 		virtual void Input(ifstream &fin) = 0;
 		virtual void Output(ofstream &fout) = 0;
+		int Past_Years();
+		bool Compare(Language &second);
+	private:
+		unsigned short int year_of_development;
+		int reference;
 	};
 }
 

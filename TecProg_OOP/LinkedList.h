@@ -24,10 +24,13 @@ namespace Filippov
 		void LinkedList_Input(ifstream &fin);
 		void LinkedList_Output(ofstream &fout);
 
+		void Sort_List();
 	private:
 		Node *First;//указатель на первый элемент в св€зном списке
 		Node *Last;//указатель на последний элемент в св€зном списке
 		size_t SizeList;
+
+		void Swap(Node *first, Node *second);
 	};
 }
 

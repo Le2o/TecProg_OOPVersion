@@ -21,10 +21,15 @@ int main(int argc, char* argv[])//int argc, char* argv[]
 
 	LinkedList list;	
 	list.LinkedList_Input(fin);
-	fout << "Filled container. " << endl;
+	fout << "Filled container." << endl;
 	list.LinkedList_Output(fout);
+	
+	fout << endl << "Sorted Linked List." << endl;
+	list.Sort_List();
+	list.LinkedList_Output(fout);
+	
 	list.~LinkedList();
-	fout << "Empty container. " << endl;
+	fout << "Empty container." << endl;
 	list.LinkedList_Output(fout);
 
 	cout << "Stop" << endl;

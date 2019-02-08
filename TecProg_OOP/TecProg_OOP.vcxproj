@@ -118,6 +118,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Functional.cpp" />
     <ClCompile Include="LinkedList.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="OOP.cpp" />
@@ -125,10 +126,15 @@
     <ClCompile Include="Language.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Functional.h" />
     <ClInclude Include="LinkedList.h" />
     <ClInclude Include="OOP.h" />
     <ClInclude Include="Procedural.h" />
     <ClInclude Include="Language.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="input.txt" />
+    <Text Include="output.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

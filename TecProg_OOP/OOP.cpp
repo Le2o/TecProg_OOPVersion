@@ -2,6 +2,7 @@
 
 void Filippov::Object_oriented::Input(ifstream &fin)
 {
+	Filippov::Language::Input(fin);
 	unsigned short int temp;
 	fin >> temp;
 	switch (temp)
@@ -22,20 +23,20 @@ void Filippov::Object_oriented::Input(ifstream &fin)
 
 void Filippov::Object_oriented::Output(ofstream &fout)
 {
-	fout << "It is Object-oriented programming language: Year of development = " << year_of_development
-		<< ", Inheritance is ";
+	fout << "It is Object-oriented programming language: Inheritance is ";
 	switch (number)
 	{
 	case Object_oriented::inheritance::SINGLE:
-		fout << "single." << endl;
+		fout << "single, ";
 		break;
 	case Object_oriented::inheritance::MULTIPLE:
-		fout << "multiple." << endl;
+		fout << "multiple, ";
 		break;
 	case Object_oriented::inheritance::INTERFACE:
-		fout << "interface." << endl;
+		fout << "interface, ";
 		break;
 	default:
 		break;
 	}
+	Filippov::Language::Output(fout);
 }

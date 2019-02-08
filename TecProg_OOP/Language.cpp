@@ -1,6 +1,9 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include "Language.h"
 #include "Procedural.h"
 #include "OOP.h"
+#include "Functional.h"
+#include <ctime>
 
 Filippov::Language* Filippov::Language::Language_Input(ifstream &fin)
 {
@@ -11,15 +14,40 @@ Filippov::Language* Filippov::Language::Language_Input(ifstream &fin)
 	{
 	case 1:
 		language = new Procedural;
-		fin >> language->year_of_development;
 		break;
 	case 2:
 		language = new Object_oriented;
-		fin >> language->year_of_development;
+		break;
+	case 3:
+		language = new Functional;
 		break;
 	default:
 		return 0;
 	}
 	language->Input(fin);
 	return language;
+}
+
+void Filippov::Language::Input(ifstream &fin)
+{
+	fin >> year_of_development;
+	fin >> reference;
+}
+
+void Filippov::Language::Output(ofstream &fout)
+{
+	fout << "Year of development = " << year_of_development
+		<< ", The number of references of this language on the Internet = " << reference << endl;
+}
+
+bool Filippov::Language::Compare(Language &second)
+{
+	return Past_Years() < second.Past_Years();
+}
+
+int Filippov::Language::Past_Years()
+{
+	time_t now = time(NULL);
+	tm* localtm = localtime(&now);
+	return 1900 + localtm->tm_year - year_of_development;
 }
