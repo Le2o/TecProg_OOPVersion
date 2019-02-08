@@ -51,3 +51,8 @@ int Filippov::Language::Past_Years()
 	tm* localtm = localtime(&now);
 	return 1900 + localtm->tm_year - year_of_development;
 }
+
+void Filippov::Language::Only_Procedural(ofstream &fout)
+{
+	fout << endl;
+}

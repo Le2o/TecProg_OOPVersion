@@ -24,6 +24,8 @@ namespace Filippov
 		void LinkedList_Input(ifstream &fin);
 		void LinkedList_Output(ofstream &fout);
 
+		void Only_Procedural(ofstream &fout);
+
 		void Sort_List();
 	private:
 		Node *First;//указатель на первый элемент в связном списке
