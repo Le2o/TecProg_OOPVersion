@@ -18,7 +18,6 @@ Filippov::LinkedList::~LinkedList()
 		--SizeList;
 	}
 	First = Temp;
-	delete Temp;
 }
 
 
