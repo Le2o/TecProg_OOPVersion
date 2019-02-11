@@ -1,6 +1,7 @@
 #include "Language.h"
 #include "Procedural.h"
 #include "OOP.h"
+#include "Functional.h"
 
 Filippov::Language* Filippov::Language::Language_Input(ifstream &fin)
 {
@@ -14,6 +15,9 @@ Filippov::Language* Filippov::Language::Language_Input(ifstream &fin)
 		break;
 	case 2:
 		language = new Object_oriented;
+		break;
+	case 3:
+		language = new Functional;
 		break;
 	default:
 		return 0;
