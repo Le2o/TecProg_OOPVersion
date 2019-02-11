@@ -31,3 +31,8 @@ void Filippov::Language::Output(ofstream &fout)
 {
 	fout << "Year of development = " << year_of_development << endl;
 }
+
+void Filippov::Language::Only_Procedural(ofstream &fout)
+{
+	fout << endl;
+}

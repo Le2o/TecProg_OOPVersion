@@ -19,3 +19,8 @@ void Filippov::Procedural::Output(ofstream &fout)
 	}
 	Filippov::Language::Output(fout);
 }
+
+void Filippov::Procedural::Only_Procedural(ofstream &fout)
+{
+	Filippov::Procedural::Output(fout);
+}
