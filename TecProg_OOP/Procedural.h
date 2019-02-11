@@ -11,7 +11,6 @@ namespace Filippov
 		Procedural() {/**/}
 		void Input(ifstream &fin);
 		void Output(ofstream &fout);
-		void Only_Procedural(ofstream &fout);
 	private:
 		bool abstract_type;
 	};
