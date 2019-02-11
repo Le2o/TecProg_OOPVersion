@@ -17,6 +17,7 @@ namespace Filippov
 		virtual void Output(ofstream &fout);
 
 		int Past_Years();
+		bool Compare(Language &second);
 	private:
 		unsigned short int year_of_development;
 	};

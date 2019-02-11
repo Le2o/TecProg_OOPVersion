@@ -40,3 +40,8 @@ int Filippov::Language::Past_Years()
 	tm* localtm = localtime(&now);
 	return 1900 + localtm->tm_year - year_of_development;
 }
+
+bool Filippov::Language::Compare(Language &second)
+{
+	return Past_Years() < second.Past_Years();
+}
