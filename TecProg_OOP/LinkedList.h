@@ -22,6 +22,8 @@ namespace Filippov
 		void LinkedList_Output(ofstream &fout);
 
 		void Sort_List();
+
+		void Only_Procedural(ofstream &fout);
 	private:
 		Node *First;//указатель на первый элемент в св€зном списке
 		Node *Last;//указатель на последний элемент в св€зном списке

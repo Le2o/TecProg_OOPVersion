@@ -27,6 +27,8 @@ int main(int argc, char* argv[])//int argc, char* argv[]
 	fout << endl << "Sorted Linked List." << endl;
 	list.Sort_List();
 	list.LinkedList_Output(fout);
+
+	list.Only_Procedural(fout);
 	
 	list.~LinkedList();
 	fout << "Empty container." << endl;
