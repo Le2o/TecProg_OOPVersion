@@ -31,6 +31,7 @@ Filippov::Language* Filippov::Language::Language_Input(ifstream &fin)
 void Filippov::Language::Input(ifstream &fin)
 {
 	fin >> year_of_development;
+	fin >> reference;
 }
 
 void Filippov::Language::Output(ofstream &fout)
