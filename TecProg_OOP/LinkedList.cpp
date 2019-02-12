@@ -64,7 +64,20 @@ void Filippov::LinkedList::LinkedList_Output(ofstream &fout)
 	}
 }
 
+void Filippov::LinkedList::Only_Procedural(ofstream &fout)
+{
+	Node *current = First;
+	fout << "Only Procedural languages." << endl;
 
+	for (size_t i = 0; i < SizeList; i++)
+	{
+		fout << i + 1 << ": ";
+		current->language->Only_Procedural(fout);
+		current = current->Next;
+	}
+
+	fout << endl;
+}
 
 void Filippov::LinkedList::Sort_List()
 {

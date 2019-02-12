@@ -51,8 +51,7 @@ bool Filippov::Language::Compare(Language &second)
 {
 	return Past_Years() < second.Past_Years();
 }
-	fout << "Year of development = " << year_of_development << endl;
-}
+
 
 void Filippov::Language::Only_Procedural(ofstream &fout)
 {
