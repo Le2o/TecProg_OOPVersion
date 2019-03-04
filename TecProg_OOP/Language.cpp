@@ -5,7 +5,7 @@
 #include "Functional.h"
 #include <ctime>
 
-Filippov::Language* Filippov::Language::Language_Input(ifstream &fin)
+Filippov::Language *Filippov::Language::Language_Input(ifstream &fin)
 {
 	Language *language;
 	unsigned short int temp;
@@ -16,7 +16,7 @@ Filippov::Language* Filippov::Language::Language_Input(ifstream &fin)
 		language = new Procedural;
 		break;
 	case 2:
-		language = new Object_oriented;
+		language = new Object_Oriented;
 		break;
 	case 3:
 		language = new Functional;
@@ -40,20 +40,21 @@ void Filippov::Language::Output(ofstream &fout)
 		<< ", The number of references of this language on the Internet = " << reference << endl;
 }
 
+
+void Filippov::Language::Only_Procedural(ofstream &fout)
+{
+	fout << endl;
+}
+
+
 int Filippov::Language::Past_Years()
 {
 	time_t now = time(NULL);
-	tm* localtm = localtime(&now);
+	tm *localtm = localtime(&now);
 	return 1900 + localtm->tm_year - year_of_development;
 }
 
 bool Filippov::Language::Compare(Language &second)
 {
 	return Past_Years() < second.Past_Years();
-}
-
-
-void Filippov::Language::Only_Procedural(ofstream &fout)
-{
-	fout << endl;
 }

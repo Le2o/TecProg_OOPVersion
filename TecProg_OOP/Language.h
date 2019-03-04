@@ -12,7 +12,7 @@ namespace Filippov
 	protected:
 		Language() {/**/}
 	public:
-		static Language* Language_Input(ifstream &fin);
+		static Language *Language_Input(ifstream &fin);
 		virtual void Input(ifstream &fin);
 		virtual void Output(ofstream &fout);
 

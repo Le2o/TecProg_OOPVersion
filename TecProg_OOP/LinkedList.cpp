@@ -1,152 +1,153 @@
 #include "LinkedList.h"
 
-Filippov::LinkedList::LinkedList()
+Filippov::Linked_List::Linked_List()
 {
-	First = NULL;
-	Last = NULL;
-	SizeList = 0;
+	head = NULL;
+	tail = NULL;
+	size_list = 0;
 }
 
-Filippov::LinkedList::~LinkedList()
+Filippov::Linked_List::~Linked_List()
 {
-	Node *Temp = NULL;
-	while (Last != NULL)
+	Node *temp = NULL;
+	while (tail != NULL)
 	{
-		Temp = Last->Prev;
-		delete Last;
-		Last = Temp;
-		--SizeList;
+		temp = tail->prev;
+		delete tail;
+		tail = temp;
+		--size_list;
 	}
-	First = Temp;
+	head = temp;
 }
 
 
-
-void Filippov::LinkedList::LinkedList_Input(ifstream &fin)
+void Filippov::Linked_List::Linked_List_Input(ifstream &fin)
 {
-	Node *Temp;
+	Node *temp;
 	while (!fin.eof())
 	{
-		Temp = new Node;
+		temp = new Node;
 
-		Temp->Next = NULL;
+		temp->next = NULL;
 
-		Temp->language = Language::Language_Input(fin);
+		temp->language = Language::Language_Input(fin);
 
-		++SizeList;
+		++size_list;
 
-		if (First == NULL)//если список пустой
+		if (head == NULL)//если список пустой
 		{
-			Temp->Prev = NULL;
-			First = Last = Temp;
+			temp->prev = NULL;
+			head = tail = temp;
 		}
 		else//если в списке есть хотя бы 1 элемент
 		{
-			Temp->Prev = Last;
-			Last->Next = Temp;
-			Last = Temp;
+			temp->prev = tail;
+			tail->next = temp;
+			tail = temp;
 		}
 	}
 }
 
-void Filippov::LinkedList::LinkedList_Output(ofstream &fout)
+void Filippov::Linked_List::Linked_List_Output(ofstream &fout)
 {
-	Node *current = First;
-	fout << "Container contains " << SizeList << " elements." << endl;
+	Node *current = head;
+	fout << "Container contains " << size_list << " elements." << endl;
 
-	for (size_t i = 0; i < SizeList; i++)
+	for (size_t i = 0; i < size_list; i++)
 	{
 		fout << i + 1 << ": ";
 		current->language->Output(fout);
 		fout << "The number of years that have passed since the year the language was created = "
-			<< current->language->Past_Years() << endl << endl;
-		current = current->Next;
+			<< current->language->Past_Years() << endl;
+		current = current->next;
 	}
 }
 
-void Filippov::LinkedList::Only_Procedural(ofstream &fout)
-{
-	Node *current = First;
-	fout << "Only Procedural languages." << endl;
 
-	for (size_t i = 0; i < SizeList; i++)
+void Filippov::Linked_List::Only_Procedural(ofstream &fout)
+{
+	Node *current = head;
+	fout << endl << "Only Procedural languages." << endl;
+
+	for (size_t i = 0; i < size_list; i++)
 	{
 		fout << i + 1 << ": ";
 		current->language->Only_Procedural(fout);
-		current = current->Next;
+		current = current->next;
 	}
 
 	fout << endl;
 }
 
-void Filippov::LinkedList::Sort_List()
+
+void Filippov::Linked_List::Sort_List()
 {
-	if (SizeList < 2)
+	if (size_list < 2)
+	{
 		return;
+	}
 
-	Node *current = First;
-
+	Node *current = head;
 	bool flag = false;
-
 	do
 	{
-		current = First;
+		current = head;
 		flag = false;
-		for (size_t i = 0; i < (SizeList - 1); ++i)
+		for (size_t i = 0; i < (size_list - 1); ++i)
 		{
-			if (current->language->Compare(*current->Next->language))
+			if (current->language->Compare(*current->next->language))
 			{
-				Swap(current, current->Next);
+				Swap(current, current->next);
 				flag = true;
 			}
 			else
 			{
-				current = current->Next;
+				current = current->next;
 			}
 		}
 	} while (flag);
 }
 
-void Filippov::LinkedList::Swap(Node *first, Node *second)
+void Filippov::Linked_List::Swap(Node *first, Node *second)
 {
-	if ((first->Prev == NULL) && (second->Next == NULL))//если в списке всего 2 элемента, но нам приспичило поменять их местами
+	if ((first->prev == NULL) && (second->next == NULL))//если в списке всего 2 элемента, но нам приспичило поменять их местами
 	{
-		First = second;
-		Last = first;
-		first->Prev = second;
-		second->Next = first;
-		first->Next = NULL;
-		second->Prev = NULL;
+		head = second;
+		tail = first;
+		first->prev = second;
+		second->next = first;
+		first->next = NULL;
+		second->prev = NULL;
 		return;
 	}
-	if ((first->Prev == NULL) && (second->Next != NULL))//если мы меняем местами первый и второй элемент списка, в котором 3 и более элементов !(first->Prev)
+	if ((first->prev == NULL) && (second->next != NULL))//если мы меняем местами первый и второй элемент списка, в котором 3 и более элементов !(first->Prev)
 	{
-		first->Next = second->Next;
-		first->Prev = second;
-		second->Next->Prev = first;
-		second->Next = first;
-		second->Prev = NULL;
-		First = second;
+		first->next = second->next;
+		first->prev = second;
+		second->next->prev = first;
+		second->next = first;
+		second->prev = NULL;
+		head = second;
 		return;
 	}
-	if ((first->Prev != NULL) && (second->Next == NULL))//если мы меняем местами предпоследний и последний элемент списка, в котором 3 и более элементов !(second->Next)
+	if ((first->prev != NULL) && (second->next == NULL))//если мы меняем местами предпоследний и последний элемент списка, в котором 3 и более элементов !(second->Next)
 	{
-		second->Prev = first->Prev;
-		first->Prev = second;
-		first->Next = NULL;
-		second->Next = first;
-		second->Prev->Next = second;
-		Last = first;
+		second->prev = first->prev;
+		first->prev = second;
+		first->next = NULL;
+		second->next = first;
+		second->prev->next = second;
+		tail = first;
 		return;
 	}
-	if ((first->Prev != NULL) && (second->Next != NULL))//если мы меняем каких-то два элемента, находящихся в середине списка, в котором 4 и более элемента(например второй и третий, если в списке 4 элемента)
+	if ((first->prev != NULL) && (second->next != NULL))//если мы меняем каких-то два элемента, находящихся в середине списка, в котором 4 и более элемента(например второй и третий, если в списке 4 элемента)
 	{
-		first->Next = second->Next;
-		second->Prev = first->Prev;
-		second->Next = first;
-		first->Prev = second;
-		second->Prev->Next = second;
-		first->Next->Prev = first;
+		first->next = second->next;
+		second->prev = first->prev;
+		second->next = first;
+		first->prev = second;
+		second->prev->next = second;
+		first->next->prev = first;
 		return;
 	}
 }

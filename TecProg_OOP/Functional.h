@@ -8,7 +8,7 @@ namespace Filippov
 	class Functional : public Language
 	{
 	public:
-		Functional() {/**/ }
+		Functional() {/**/}
 		void Input(ifstream &fin);
 		void Output(ofstream &fout);
 	private:

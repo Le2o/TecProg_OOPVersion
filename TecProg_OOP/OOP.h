@@ -5,10 +5,10 @@
 
 namespace Filippov
 {
-	class Object_oriented : public Language
+	class Object_Oriented : public Language
 	{
 	public:
-		Object_oriented() {/**/}
+		Object_Oriented() {/**/}
 		void Input(ifstream &fin);
 		void Output(ofstream &fout);
 	private:

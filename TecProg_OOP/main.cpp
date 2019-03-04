@@ -5,7 +5,7 @@
 using namespace std;
 using namespace Filippov;
 
-int main(int argc, char* argv[])//int argc, char* argv[]
+int main(int argc, char* argv[])
 {
 	if (argc != 3)
 	{
@@ -19,20 +19,20 @@ int main(int argc, char* argv[])//int argc, char* argv[]
 
 	cout << "Start" << endl;
 
-	LinkedList list;	
-	list.LinkedList_Input(fin);
+	Linked_List list;	
+	list.Linked_List_Input(fin);
 	fout << "Filled container." << endl;
-	list.LinkedList_Output(fout);
+	list.Linked_List_Output(fout);
 	
 	fout << endl << "Sorted Linked List." << endl;
 	list.Sort_List();
-	list.LinkedList_Output(fout);
+	list.Linked_List_Output(fout);
 
 	list.Only_Procedural(fout);
 	
-	list.~LinkedList();
+	list.~Linked_List();
 	fout << "Empty container." << endl;
-	list.LinkedList_Output(fout);
+	list.Linked_List_Output(fout);
 
 	cout << "Stop" << endl;
 	return 0;

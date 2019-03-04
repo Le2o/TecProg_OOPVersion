@@ -1,4 +1,3 @@
-#pragma once
 #ifndef LINKEDLIST_H
 #define LINKEDLIST_H
 
@@ -6,28 +5,28 @@
 
 namespace Filippov
 {
-	class LinkedList
+	class Linked_List
 	{
 		struct Node
 		{
-			Language *language;
-			Node *Next;//указатель на следующий элемент в списке
-			Node *Prev;//указатель на предыдущий элемент в списке
+			Language *language;//указатель на объект списка
+			Node *next;//указатель на следующий элемент в списке
+			Node *prev;//указатель на предыдущий элемент в списке
 		};
 	public:
-		LinkedList();
-		~LinkedList();
+		Linked_List();
+		~Linked_List();
 
-		void LinkedList_Input(ifstream &fin);
-		void LinkedList_Output(ofstream &fout);
+		void Linked_List_Input(ifstream &fin);
+		void Linked_List_Output(ofstream &fout);
 
 		void Sort_List();
 
 		void Only_Procedural(ofstream &fout);
 	private:
-		Node *First;//указатель на первый элемент в связном списке
-		Node *Last;//указатель на последний элемент в связном списке
-		size_t SizeList;
+		Node *head;//указатель на первый элемент в связном списке
+		Node *tail;//указатель на последний элемент в связном списке
+		size_t size_list;//размер списка
 
 		void Swap(Node *first, Node *second);
 	};
