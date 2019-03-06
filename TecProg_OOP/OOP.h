@@ -9,7 +9,7 @@ namespace Filippov
 	{
 	public:
 		Object_Oriented() {/**/}
-		void Input(ifstream &fin);
+		bool Input(ifstream &fin);
 		void Output(ofstream &fout);
 	private:
 		enum inheritance

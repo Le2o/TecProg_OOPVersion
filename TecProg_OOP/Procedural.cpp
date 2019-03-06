@@ -1,9 +1,34 @@
 #include "Procedural.h"
+#include <string>
 
-void Filippov::Procedural::Input(ifstream &fin)
+bool Filippov::Procedural::Input(ifstream &fin)
 {
-	Filippov::Language::Input(fin);
-	fin >> abstract_type;
+	if (!Filippov::Language::Input(fin))
+	{
+		return false;
+	}
+
+	string temp;
+	fin >> temp;
+	if (temp.length() > 1)
+	{
+		return false;
+	}
+	if (!isdigit(int(unsigned char(temp.front()))))
+	{
+		return false;
+	}
+
+	int state = stoi(temp);
+	if (state > 0)
+	{
+		abstract_type = true;
+	}
+	else
+	{
+		abstract_type = false;
+	}
+	return true;
 }
 
 void Filippov::Procedural::Output(ofstream &fout)

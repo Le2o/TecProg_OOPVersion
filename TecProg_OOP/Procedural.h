@@ -9,7 +9,7 @@ namespace Filippov
 	{
 	public:
 		Procedural() {/**/}
-		void Input(ifstream &fin);
+		bool Input(ifstream &fin);
 		void Output(ofstream &fout);
 		void Only_Procedural(ofstream &fout);
 	private:

@@ -28,10 +28,13 @@ void Filippov::Linked_List::Linked_List_Input(ifstream &fin)
 	{
 		temp = new Node;
 
-		temp->next = NULL;
-
 		temp->language = Language::Language_Input(fin);
+		if (temp->language == NULL)
+		{
+			continue;
+		}
 
+		temp->next = NULL;
 		++size_list;
 
 		if (head == NULL)//если список пустой

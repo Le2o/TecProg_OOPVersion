@@ -4,13 +4,27 @@
 #include "OOP.h"
 #include "Functional.h"
 #include <ctime>
+#include <string>
 
 Filippov::Language *Filippov::Language::Language_Input(ifstream &fin)
 {
 	Language *language;
-	unsigned short int temp;
+	string temp;
 	fin >> temp;
-	switch (temp)
+	if (temp.length()  > 1)
+	{
+		fin.get();
+		getline(fin, temp, '\n');
+		return NULL;
+	}
+	if (!isdigit(int(unsigned char(temp.front()))))
+	{
+		fin.get();
+		getline(fin, temp, '\n');
+		return NULL;
+	}
+	int state = stoi(temp);
+	switch (state)
 	{
 	case 1:
 		language = new Procedural;
@@ -22,16 +36,48 @@ Filippov::Language *Filippov::Language::Language_Input(ifstream &fin)
 		language = new Functional;
 		break;
 	default:
-		return 0;
+		return NULL;
 	}
-	language->Input(fin);
-	return language;
+	if (!language->Input(fin))
+	{
+		return NULL;
+	}
+	else
+	{
+		return language;
+	}
 }
 
-void Filippov::Language::Input(ifstream &fin)
+bool Filippov::Language::Input(ifstream &fin)
 {
-	fin >> year_of_development;
-	fin >> reference;
+	string temp;
+	fin >> temp;
+	if (temp.length() != 4)
+	{
+		getline(fin, temp, '\n');
+		return false;
+	}
+	for (auto iter = temp.begin(); iter != temp.end(); ++iter)
+	{
+		if (!isdigit(int(unsigned char(*iter))))
+		{
+			getline(fin, temp, '\n');
+			return false;
+		}
+	}
+	year_of_development = stoul(temp);
+
+	fin >> temp;
+	for (auto iter = temp.begin(); iter != temp.end(); ++iter)
+	{
+		if (!isdigit(int(unsigned char(*iter))))
+		{
+			getline(fin, temp, '\n');
+			return false;
+		}
+	}
+	reference = stoull(temp);
+	return true;
 }
 
 void Filippov::Language::Output(ofstream &fout)
