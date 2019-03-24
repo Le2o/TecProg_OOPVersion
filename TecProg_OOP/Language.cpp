@@ -40,6 +40,8 @@ Filippov::Language *Filippov::Language::Language_Input(ifstream &fin)
 		language = new Functional;
 		break;
 	default:
+		fin.get();
+		getline(fin, temp, '\n');
 		return NULL;
 	}
 	if (!language->Input(fin))
@@ -114,5 +116,17 @@ int Filippov::Language::Past_Years()
 
 bool Filippov::Language::Compare(Language &second)
 {
+	if (this == NULL && &second != NULL)
+	{
+		return true;
+	}
+	if (this != NULL && &second == NULL)
+	{
+		return false;
+	}
+	if (this == NULL && &second == NULL)
+	{
+		return false;
+	}
 	return Past_Years() < second.Past_Years();
 }
