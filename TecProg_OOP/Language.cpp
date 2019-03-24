@@ -11,6 +11,10 @@ Filippov::Language *Filippov::Language::Language_Input(ifstream &fin)
 	Language *language;
 	string temp;
 	fin >> temp;
+	if (temp == "\0")
+	{
+		return false;
+	}
 	if (temp.length()  > 1)
 	{
 		fin.get();
@@ -52,6 +56,10 @@ bool Filippov::Language::Input(ifstream &fin)
 {
 	string temp;
 	fin >> temp;
+	if (temp == "\0")
+	{
+		return false;
+	}
 	if (temp.length() != 4)
 	{
 		getline(fin, temp, '\n');
@@ -68,6 +76,10 @@ bool Filippov::Language::Input(ifstream &fin)
 	year_of_development = stoul(temp);
 
 	fin >> temp;
+	if (temp == "\0")
+	{
+		return false;
+	}
 	for (auto iter = temp.begin(); iter != temp.end(); ++iter)
 	{
 		if (!isdigit(int(unsigned char(*iter))))

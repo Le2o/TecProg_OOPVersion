@@ -10,6 +10,10 @@ bool Filippov::Object_Oriented::Input(ifstream &fin)
 	
 	string temp;
 	fin >> temp;
+	if (temp == "\0")
+	{
+		return false;
+	}
 	if (temp.length() > 1)
 	{
 		return false;
