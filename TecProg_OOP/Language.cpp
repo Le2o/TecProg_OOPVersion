@@ -100,12 +100,10 @@ void Filippov::Language::Output(ofstream &fout)
 		<< ", The number of references of this language on the Internet = " << reference << endl;
 }
 
-
 void Filippov::Language::Only_Procedural(ofstream &fout)
 {
 	fout << endl;
 }
-
 
 int Filippov::Language::Past_Years()
 {

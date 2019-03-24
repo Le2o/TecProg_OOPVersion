@@ -15,9 +15,7 @@ namespace Filippov
 		static Language *Language_Input(ifstream &fin);
 		virtual bool Input(ifstream &fin);
 		virtual void Output(ofstream &fout);
-
 		virtual void Only_Procedural(ofstream &fout);
-
 		int Past_Years();
 		bool Compare(Language &second);
 	private:
@@ -26,4 +24,4 @@ namespace Filippov
 	};
 }
 
-#endif // !LANGUAGE_H
+#endif

@@ -21,4 +21,4 @@ namespace Filippov
 	};
 }
 
-#endif // !OOP_H
+#endif

@@ -16,20 +16,16 @@ namespace Filippov
 	public:
 		Linked_List();
 		~Linked_List();
-
 		void Linked_List_Input(ifstream &fin);
 		void Linked_List_Output(ofstream &fout);
-
 		void Sort_List();
-
 		void Only_Procedural(ofstream &fout);
 	private:
 		Node *head;//указатель на первый элемент в связном списке
 		Node *tail;//указатель на последний элемент в связном списке
 		size_t size_list;//размер списка
-
 		void Swap(Node *first, Node *second);
 	};
 }
 
-#endif // !LINKEDLIST_H
+#endif

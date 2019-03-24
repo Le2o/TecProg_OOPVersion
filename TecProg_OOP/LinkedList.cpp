@@ -20,7 +20,6 @@ Filippov::Linked_List::~Linked_List()
 	head = temp;
 }
 
-
 void Filippov::Linked_List::Linked_List_Input(ifstream &fin)
 {
 	Node *temp;
@@ -68,7 +67,6 @@ void Filippov::Linked_List::Linked_List_Output(ofstream &fout)
 	}
 }
 
-
 void Filippov::Linked_List::Only_Procedural(ofstream &fout)
 {
 	Node *current = head;
@@ -88,7 +86,6 @@ void Filippov::Linked_List::Only_Procedural(ofstream &fout)
 
 	fout << endl;
 }
-
 
 void Filippov::Linked_List::Sort_List()
 {
@@ -130,7 +127,8 @@ void Filippov::Linked_List::Swap(Node *first, Node *second)
 		second->prev = NULL;
 		return;
 	}
-	if ((first->prev == NULL) && (second->next != NULL))//если мы меняем местами первый и второй элемент списка, в котором 3 и более элементов !(first->Prev)
+	//если мы меняем местами первый и второй элемент списка, в котором 3 и более элементов !(first->prev)
+	if ((first->prev == NULL) && (second->next != NULL))
 	{
 		first->next = second->next;
 		first->prev = second;
@@ -140,7 +138,8 @@ void Filippov::Linked_List::Swap(Node *first, Node *second)
 		head = second;
 		return;
 	}
-	if ((first->prev != NULL) && (second->next == NULL))//если мы меняем местами предпоследний и последний элемент списка, в котором 3 и более элементов !(second->Next)
+	//если мы меняем местами предпоследний и последний элемент списка, в котором 3 и более элементов !(second->next)
+	if ((first->prev != NULL) && (second->next == NULL))
 	{
 		second->prev = first->prev;
 		first->prev = second;
@@ -150,7 +149,9 @@ void Filippov::Linked_List::Swap(Node *first, Node *second)
 		tail = first;
 		return;
 	}
-	if ((first->prev != NULL) && (second->next != NULL))//если мы меняем каких-то два элемента, находящихся в середине списка, в котором 4 и более элемента(например второй и третий, если в списке 4 элемента)
+	//если мы меняем каких-то два элемента, находящихся в середине списка, в котором 4 и более элемента
+	//(например второй и третий, если в списке 4 элемента)
+	if ((first->prev != NULL) && (second->next != NULL))
 	{
 		first->next = second->next;
 		second->prev = first->prev;
