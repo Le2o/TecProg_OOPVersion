@@ -20,6 +20,8 @@ namespace Filippov
 
 		void LinkedList_Input(ifstream &fin);
 		void LinkedList_Output(ofstream &fout);
+
+		void Multi_Method(ofstream &fout);
 	private:
 		Node *First;//указатель на первый элемент в св€зном списке
 		Node *Last;//указатель на последний элемент в св€зном списке

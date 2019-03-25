@@ -5,7 +5,7 @@
 using namespace std;
 using namespace Filippov;
 
-int main(int argc, char* argv[])//int argc, char* argv[]
+int main(int argc, char* argv[])
 {
 	if (argc != 3)
 	{
@@ -24,8 +24,10 @@ int main(int argc, char* argv[])//int argc, char* argv[]
 	fout << "Filled container." << endl;
 	list.LinkedList_Output(fout);
 	
+	fout << endl;
+	list.Multi_Method(fout);
+	fout << endl;
 
-	
 	list.~LinkedList();
 	fout << "Empty container." << endl;
 	list.LinkedList_Output(fout);

@@ -25,11 +25,9 @@ Filippov::Language* Filippov::Language::Language_Input(ifstream &fin)
 void Filippov::Language::Input(ifstream &fin)
 {
 	fin >> year_of_development;
-	fin >> reference;
 }
 
 void Filippov::Language::Output(ofstream &fout)
 {
-	fout << "Year of development = " << year_of_development
-		<< ", The number of references of this language on the Internet = " << reference << endl;
+	fout << "Year of development = " << year_of_development << endl;
 }

@@ -11,6 +11,10 @@ namespace Filippov
 		Procedural() {/**/}
 		void Input(ifstream &fin);
 		void Output(ofstream &fout);
+
+		virtual void Multi_Method(Language *other, ofstream &fout);
+		virtual void Multi_Method_Procedural(ofstream &fout);
+		virtual void Multi_Method_OOP(ofstream &fout);
 	private:
 		bool abstract_type;
 	};
