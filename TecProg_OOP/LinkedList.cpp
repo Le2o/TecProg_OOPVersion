@@ -28,6 +28,10 @@ void Filippov::Linked_List::Linked_List_Input(ifstream &fin)
 		temp = new Node;
 
 		temp->language = Language::Language_Input(fin);
+		if (temp->language == NULL)
+		{
+			continue;
+		}
 		temp->next = NULL;
 		++size_list;
 
@@ -53,16 +57,9 @@ void Filippov::Linked_List::Linked_List_Output(ofstream &fout)
 	for (size_t i = 0; i < size_list; i++)
 	{
 		fout << i + 1 << ": ";
-		if (current->language == NULL)
-		{
-			fout << "Error reading data! Expected other values in the string." << endl;
-		}
-		else
-		{
-			current->language->Output(fout);
-			fout << "The number of years that have passed since the year the language was created = "
-				<< current->language->Past_Years() << endl;
-		}
+		current->language->Output(fout);
+		fout << "The number of years that have passed since the year the language was created = "
+			<< current->language->Past_Years() << endl;
 		current = current->next;
 	}
 }
@@ -75,11 +72,6 @@ void Filippov::Linked_List::Only_Procedural(ofstream &fout)
 	for (size_t i = 0; i < size_list; i++)
 	{
 		fout << i + 1 << ": ";
-		if (current->language == NULL)
-		{
-			fout << endl;
-			continue;
-		}
 		current->language->Only_Procedural(fout);
 		current = current->next;
 	}
@@ -162,5 +154,25 @@ void Filippov::Linked_List::Swap(Node *first, Node *second)
 		second->prev->next = second;
 		first->next->prev = first;
 		return;
+	}
+}
+
+void Filippov::Linked_List::Multi_Method(ofstream &fout)
+{
+	Node *current_first = head;
+	Node *current_second = current_first->next;
+
+	fout << endl << "Multimethod." << endl;
+	for (size_t i = 0; i < size_list - 1; i++)
+	{
+		for (size_t j = i + 1; j < size_list; j++)
+		{
+			current_first->language->Multi_Method(current_second->language, fout);
+			current_first->language->Output(fout);
+			current_second->language->Output(fout);
+			current_second = current_second->next;
+		}
+		current_first = current_first->next;
+		current_second = current_first->next;
 	}
 }

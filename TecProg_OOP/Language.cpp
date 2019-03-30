@@ -114,17 +114,5 @@ int Filippov::Language::Past_Years()
 
 bool Filippov::Language::Compare(Language &second)
 {
-	if (this == NULL && &second != NULL)
-	{
-		return true;
-	}
-	if (this != NULL && &second == NULL)
-	{
-		return false;
-	}
-	if (this == NULL && &second == NULL)
-	{
-		return false;
-	}
 	return Past_Years() < second.Past_Years();
 }

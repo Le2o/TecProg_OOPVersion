@@ -59,3 +59,23 @@ void Filippov::Object_Oriented::Output(ofstream &fout)
 	}
 	Filippov::Language::Output(fout);
 }
+
+void Filippov::Object_Oriented::Multi_Method(Language *other, ofstream &fout)
+{
+	other->Multi_Method_OOP(fout);
+}
+
+void Filippov::Object_Oriented::Multi_Method_Procedural(ofstream &fout)
+{
+	fout << "Procedural and OOP." << endl;
+}
+
+void Filippov::Object_Oriented::Multi_Method_OOP(ofstream &fout)
+{
+	fout << "OOP and OOP." << endl;
+}
+
+void Filippov::Object_Oriented::Multi_Method_Functional(ofstream &fout)
+{
+	fout << "Functional and OOP." << endl;
+}

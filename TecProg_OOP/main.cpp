@@ -40,6 +40,8 @@ int main(int argc, char* argv[])
 	list.Sort_List();
 	list.Linked_List_Output(fout);
 
+	list.Multi_Method(fout);
+
 	list.Only_Procedural(fout);
 	
 	list.~Linked_List();

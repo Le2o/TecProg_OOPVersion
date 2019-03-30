@@ -20,6 +20,7 @@ namespace Filippov
 		void Linked_List_Output(ofstream &fout);
 		void Sort_List();
 		void Only_Procedural(ofstream &fout);
+		void Multi_Method(ofstream &fout);
 	private:
 		Node *head;//указатель на первый элемент в св€зном списке
 		Node *tail;//указатель на последний элемент в св€зном списке
